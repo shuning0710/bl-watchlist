@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+}
+
+header {
+  padding: 20px;
+  background: #3b82f6;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+header input, header select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+main {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.drama-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.drama-card h2 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.drama-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+.drama-card .type {
+  font-weight: bold;
+  color: #2563eb;
+}

@@ -1,0 +1,53 @@
+let dramas = [];
+
+async function loadDramas() {
+  const res = await fetch('dramas.json');
+  dramas = await res.json();
+  displayDramas(dramas);
+}
+
+function displayDramas(list) {
+  const container = document.getElementById('dramaList');
+  container.innerHTML = '';
+
+  list.forEach(drama => {
+    const card = document.createElement('div');
+    card.className = 'drama-card';
+    card.innerHTML = `
+      <h2>${drama.title}</h2>
+      <p class="type">${drama.type}</p>
+      <p><strong>原名:</strong> ${drama.original_name}</p>
+      <p><strong>主CP:</strong> ${drama.main_cp}</p>
+      <p><strong>副CP:</strong> ${drama.support_cp}</p>
+      <p><strong>平台:</strong> ${drama.platform}</p>
+      <p><strong>播出时间:</strong> ${drama.broadcast_time}</p>
+      <p><strong>集数:</strong> ${drama.episodes}</p>
+      <p><strong>状态:</strong> ${drama.status}</p>
+      <p><strong>简介:</strong> ${drama.description}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// 搜索功能
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase();
+  const filtered = dramas.filter(d => 
+    d.title.toLowerCase().includes(query) || 
+    d.main_cp.toLowerCase().includes(query) ||
+    d.support_cp.toLowerCase().includes(query)
+  );
+  displayDramas(filtered);
+});
+
+// 类型过滤
+document.getElementById('filterType').addEventListener('change', (e) => {
+  const type = e.target.value;
+  if(type === 'all') {
+    displayDramas(dramas);
+  } else {
+    displayDramas(dramas.filter(d => d.type === type));
+  }
+});
+
+loadDramas();

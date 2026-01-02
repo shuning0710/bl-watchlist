@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>剧集清单网站</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>全部剧集清单</h1>
+    <input type="text" id="searchInput" placeholder="搜索剧名或CP..." />
+    <select id="filterType">
+      <option value="all">全部类型</option>
+      <option value="泰剧">泰剧</option>
+      <option value="韩剧">韩剧</option>
+      <option value="日剧">日剧</option>
+      <option value="台剧">台剧</option>
+      <option value="漫画/动漫改编">漫画/动漫改编</option>
+    </select>
+  </header>
+
+  <main id="dramaList"></main>
+
+  <script src="script.js"></script>
+</body>
+</html>
